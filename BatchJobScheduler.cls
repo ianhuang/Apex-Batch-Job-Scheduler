@@ -13,17 +13,18 @@ global class BatchJobScheduler implements Schedulable {
         get {
             BatchJobs = new List<Set<String>>();
             
-            //每个批次最多4个job
+            //Maximum 4 jobs per batch
             
-            // 批次 1
+            // Batch 1
             BatchJobs.add(new Set<String>{'ExpiringContractRenewalOpportunityBatch',
             	                          'SalesPerformanceActualUpdateBatch',
             	                          'SalesPerformanceEstimatedUpdateBatch',
             	                          'MessageCollectionBatch'});
-            // 批次 2
+            // Batch 2
             BatchJobs.add(new Set<String>{'SalesPerformanceRollUpBatch'});
             
-            // 批次3
+            // Batch 3
+            //........
             
             return BatchJobs;
         }

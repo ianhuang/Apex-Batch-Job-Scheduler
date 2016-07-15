@@ -1,4 +1,4 @@
-global class BatchJob1 extends BatchJobBase implements Database.Batchable<sObject> {
+global class BatchJob2 extends BatchJobBase implements Database.Batchable<sObject> {
     
     global BatchJob2() {
     	//override default batch job size

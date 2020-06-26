@@ -1,0 +1,49 @@
+<apex:page controller="SchedulerConfigurationController" showHeader="true" sidebar="true">
+<head>
+</head>
+
+<body>
+ <apex:form >
+    <apex:pageBlock title="Batch Job Schedules">
+        <apex:pageMessages />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Apply Changes" action="{!save}"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockTable value="{!scheduledApexJobs}" var="job">
+            <apex:column headerValue="Job Name">
+                <apex:outputText value="{!job.schedule.Name}"/>
+            </apex:column>
+            <apex:column headerValue="Cron Trigger Id">
+                <apex:outputText value="{!job.schedule.Cron_Trigger_Id__c}"/>
+            </apex:column>            
+            <apex:column headerValue="Cron Expression">
+                <apex:outputText value="{!job.schedule.Cron_Expression__c}"/>
+            </apex:column>
+            <apex:column headerValue="State">
+               <apex:outputField value="{!job.CronTrigger.State}"/>
+            </apex:column> 
+            <apex:column headerValue="Times Triggered">
+               <apex:outputField value="{!job.CronTrigger.TimesTriggered}"/>
+            </apex:column>             
+            <apex:column headerValue="Previous Fire Time">
+               <apex:outputField value="{!job.CronTrigger.PreviousFireTime}"/>
+            </apex:column> 
+            <apex:column headerValue="Next Fire Time">
+               <apex:outputField value="{!job.CronTrigger.NextFireTime}"/>
+            </apex:column>
+            <apex:column headerValue="Start Time">
+               <apex:outputField value="{!job.CronTrigger.StartTime}"/>
+            </apex:column> 
+            <apex:column headerValue="End Time">
+               <apex:outputField value="{!job.CronTrigger.EndTime}"/>
+            </apex:column> 
+            <apex:column headerValue="Scheduled">
+                <apex:inputCheckbox value="{!job.Scheduled}"/>
+            </apex:column>   
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+ </apex:form>    
+</body>
+    
+</apex:page>

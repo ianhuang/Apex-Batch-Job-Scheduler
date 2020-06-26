@@ -7,13 +7,13 @@ Batch Job Scheduler is a light weight Apex framework, it manages Batch Apex job 
 
 It provides the following benefits:
 
-• Reduce total execution time - Executes up to 5 batch jobs simultaneously
-• Manage data dependencies - Execute batch jobs in specific groups and orders
-• Easy set up and maintenance - Configurations based and requires minimal code changes
+* Reduce total execution time - Executes up to 5 batch jobs simultaneously
+* Manage data dependencies - Execute batch jobs in specific groups and orders
+* Easy set up and maintenance - Configurations based and requires minimal code changes
 
 
 How to set up Batch Job Scheduler
-Step 1. Create Batch Apex class
-Step 2. Create Batch Job Scheduler record
-Step 3. Create Batch Job records
-Step 4. Schedule Batch Jobs
+* Step 1. Create Batch Apex class
+* Step 2. Create Batch Job Scheduler record
+* Step 3. Create Batch Job records
+* Step 4. Schedule Batch Jobs

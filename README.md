@@ -13,7 +13,10 @@ It provides the following benefits:
 
 
 How to set up Batch Job Scheduler
-* Step 1. Create Batch Apex class
-* Step 2. Create Batch Job Scheduler record
-* Step 3. Create Batch Job records
+* Step 1. Create a Batch Apex class
+* Step 2. Create a Batch Job Scheduler record
+* Step 3. Create a Batch Job records
 * Step 4. Schedule Batch Jobs
+
+Batch Job Scheduler is published on Salesforce AppExchange, you can install it directly from AppExchange:
+https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR4aUUAT

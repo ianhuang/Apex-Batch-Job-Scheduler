@@ -9,7 +9,7 @@ It provides the following benefits:
 
 * Reduce total execution time - Executes up to 5 batch jobs simultaneously
 * Manage data dependencies - Execute batch jobs in specific groups and orders
-* Easy set up and maintenance - Configurations based and requires minimal code changes
+* Easy set up and maintenance - Configurations based and requires minimal code changes to existing Batch classes
 
 
 How to set up Batch Job Scheduler

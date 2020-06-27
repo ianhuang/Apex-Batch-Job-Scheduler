@@ -3,7 +3,7 @@ Batch Job Scheduler app helps you manage Batch job execution sequence and data d
 
 Are you using Batch Apex jobs to process large volume of data in Salesforce? Does it take long hours to run? Do you need to run some Batch jobs only when another Batch job is finished due to data dependencies? BatchJobScheduler can help you.
 
-Batch Job Scheduler is a light weight Apex framework, it manages Batch Apex job execution in desired groups and sequences.
+Batch Job Scheduler is a light weight Apex framework, it manages the execution of multiple Batch Apex jobs in preferred groups and sequences.
 
 It provides the following benefits:
 

@@ -77,7 +77,10 @@ global with sharing class BatchJobScheduler implements Schedulable {
     
     //load active batch jobs from Batch_Apex_Job__c, sort by Batch No and Batch Sequence
     private List<List<Batch_Apex_Job__c>> loadActiveBatchJobs(Id cronTriggerId) {
-        Map<Integer, List<Batch_Apex_Job__c>> jobMap = new Map<Integer, List<Batch_Apex_Job__c>>();
+        List<List<Batch_Apex_Job__c>> result = new List<List<Batch_Apex_Job__c>>();
+        List<Batch_Apex_Job__c> lastGroup;
+        Integer lastGroupIndex;
+
         for (Batch_Apex_Job__c baj : [SELECT   Id, Name, 
                                                batchjobsch__Batch_Class_Name__c,
                                                batchjobsch__Batch_Size__c,
@@ -86,21 +89,18 @@ global with sharing class BatchJobScheduler implements Schedulable {
                                       FROM     batchjobsch__Batch_Apex_Job__c
                                       WHERE    batchjobsch__Enabled__c = true
                                       AND      batchjobsch__Batch_Job_Schedule__r.batchjobsch__Cron_Trigger_Id__c = :cronTriggerId
-                                      ORDER BY batchjobsch__Batch_Group__c, CreatedDate]) {
-                                            
-            if (!jobMap.containsKey(Integer.valueOf(baj.Batch_Group__c)))
-                jobMap.put(Integer.valueOf(baj.Batch_Group__c), new List<Batch_Apex_Job__c>());
-                                            
-            jobMap.get(Integer.valueOf(baj.Batch_Group__c)).add(baj);
+                                      ORDER BY batchjobsch__Batch_Group__c, CreatedDate
+        ]) {                                    
+            Integer currentGroupIndex = Integer.valueOf(baj.Batch_Group__c);
+            if (currentGroupIndex != lastGroupIndex) {
+                lastGroup = new List<Batch_Apex_Job__c>();
+                lastGroupIndex = currentGroupIndex;
+                result[lastGroupIndex] = lastGroup;
+            }
+
+            lastGroup.add(baj);
         }
         
-        List<Integer> jobBatchNoList = new List<Integer>(jobMap.keySet());
-        jobBatchNoList.sort();        
-                
-        List<List<Batch_Apex_Job__c>> result = new List<List<Batch_Apex_Job__c>>();        
-        for(Integer i=0; i<jobBatchNoList.size(); i++) {
-            result.add(jobMap.get(jobBatchNoList[i]));             
-        }                
                 
         return result;
     }

@@ -20,3 +20,6 @@ How to set up Batch Job Scheduler
 
 Batch Job Scheduler is published on Salesforce AppExchange, you can install it directly from AppExchange:
 https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR4aUUAT
+
+Design Document
+https://partners.salesforce.com/servlet/servlet.FileDownload?file=00P3A00000jG21hUAC
